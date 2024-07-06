@@ -1,14 +1,14 @@
 /** @format */
 
-const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 const { PostMessage } = require('../models/postMessage');
 
 const post = {};
 
 post.getPosts = async (req, res) => {
   try {
-    // const postMessage = await PostMessage.find();
-    res.status(200).json({ message: "Hello" });
+    const postMessage = await PostMessage.find();
+    res.status(200).json(postMessage);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
